@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Guess the Number</title>
+    <style>
+        body {
+
+            width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 90px 450px;
+            background-color: rgb(171, 238, 243);
+            background-image: url('https://cdn.pixabay.com/photo/2018/11/13/18/05/html-3813614__340.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: rgb(255, 255, 255);
+
+        }
+
+        #submitguess {
+            background-color: white;
+            border: .5px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submitguess:hover {
+            background-color: orange;
+            color: rgb(13, 14, 14);
+            transition: .5s;
+        }
+
+        #submitguess:active {
+            background-color: rgb(205, 27, 27);
+            color: aliceblue;
+            transition: .5s;
+        }
+
+
+
+        #guessField {
+            border: .5px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Guess The Number</h1>
+
+    <h3>You have to guess between 0 - 99. See if you can guess it.</h3>
+
+    <div class="form">
+        <label for="guessField">Enter a guess: </label>
+        <input type="text" id="guessField" maxlength="2">
+        <input type="submit" value="Submit guess" id="submitguess">
+        <p><span style="color: rgb(248, 5, 5) ;">*Note* :-</span> You have only 15 chances to Guess</p>
+    </div>
+
+
+    <script type="text/javascript">
+        let y = Math.floor(Math.random() * 99 + 1);
+        let guess = 0;
+
+        document.getElementById("submitguess").onclick = function () {
+            let x = document.getElementById("guessField").value;
+            if (guess == 15) {
+                alert("OOPS SORRY!! Y0U ARE OUT OF CHANCES 🔓")
+            }
+            else if (x == y) {
+                alert("CONGRATULATIONS 🏆 !!! YOU GUESSED THE RIGHT NUMBER 🏆"
+                    + guess + " GUESS ");
+            }
+            else if (x > y) {
+                guess++;
+                alert("OOPS !! TRY A SMALLER NUMBER");
+            }
+            else if (x < y) {
+                guess++;
+                alert("OOPS !! TRY A GREATER NUMBER")
+            }
+        }
+    </script>
+</body>
+
+</html>
